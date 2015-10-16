@@ -1,0 +1,177 @@
+from Tkinter import *
+import random
+
+
+class MyGUI:
+	def __init__(self, master):
+		self.master = master
+		master.title("Name Generator V3")
+
+
+#GUI Elements
+		
+		title = Label(master, text = "MINI Name Generator")
+		title.grid(row = 0, column = 0)
+
+		l1 = Label(master, text = "What is your favorite season?")
+		l1.grid(row = 1, column = 0)
+
+		e1 = Entry(master, bd = 5)
+		e1.grid(row = 1, column  = 1)
+
+		l2 = Label(master, text = "Question two goes here")
+		l2.grid(row = 2, column = 0)
+
+		e2 = Entry(master, bd = 5)
+		e2.grid(row = 2, column  = 1)
+
+
+		b1 = Button(master, text = "Generate MINI name",
+			command = lambda: self.generator(e1, e2, e4))
+		b1.grid(row = 5, column = 0)
+
+		b2 = Button(master, text = "Close",
+			command = master.quit)
+		b2.grid(row = 5, column = 1)
+
+		l4 = Label(master, text = "New name . . .")
+		l4.grid(row = 4, column = 0)
+
+		e4 = Text(master, width = 22, height = 1, bd = 5)
+		e4.grid(row = 4, column = 1)
+		e4.configure(state = "disabled")
+		
+#Function to generate the name
+	
+	def generator(self, e1, e2, e4):
+		
+#Question 1 Functions
+		
+		#Fall Generator
+		def name_generator_1():
+			gen_1 = ["Breezy", "Pumpkin", "Spooky", "Mysterious", "Crisp"]
+			randomNumber1 = random.randrange(0,len(gen_1))
+			name_1 = gen_1[randomNumber1]
+			return name_1
+		
+		#Summer Generator
+		def name_generator_2():
+			gen_2 = ["Hot", "Surf", "Sunny", "Light", "Bright"]
+			randomNumber2 = random.randrange(0,len(gen_2))
+			name_2 = gen_2[randomNumber2]
+			return name_2
+		
+		#Winter	Generator
+		def name_generator_3():
+			gen_3 = ["Frosty", "Frigid", "Magical", "Cold", "Cool", "Ice"]
+			randomNumber3 = random.randrange(0,len(gen_3))
+			name_3 = gen_3[randomNumber3]
+			return name_3
+		
+		#Spring Generator	
+		def name_generator_4():
+			gen_4 = ["Fresh", "Magic", "Young", "Warm", "Shady"]
+			randomNumber4 = random.randrange(0,len(gen_4))
+			name_4 = gen_4[randomNumber4]
+			return name_4
+		
+		#Generator for all other question 1 input	
+		def name_generator_5():
+			gen_5 = ["Radical", "Sweet", "Super", "The Last", "Olde"]
+			randomNumber5 = random.randrange(0,len(gen_5))
+			name_5 = gen_5[randomNumber5]
+			return name_5
+			
+#Question 2 Functions
+		
+		
+		def name_generator_6():
+			gen_6 = ["Radical", "Sweet", "Super", "The Last", "Olde"]
+			randomNumber6 = random.randrange(0,len(gen_6))
+			name_6 = gen_6[randomNumber6]
+			return name_6
+			
+		def name_generator_7():
+			gen_7 = ["Radical", "Sweet", "Super", "The Last", "Olde"]
+			randomNumber7 = random.randrange(0,len(gen_7))
+			name_7 = gen_7[randomNumber6]
+			return name_7
+			
+		def name_generator_8():
+			gen_8 = ["Radical", "Sweet", "Super", "The Last", "Olde"]
+			randomNumber8 = random.randrange(0,len(gen_8))
+			name_8 = gen_8[randomNumber8]
+			return name_8
+			
+		def name_generator_9():
+			gen_9 = ["Radical", "Sweet", "Super", "The Last", "Olde"]
+			randomNumber9 = random.randrange(0,len(gen_9))
+			name_9 = gen_9[randomNumber9]
+			return name_9
+			
+		def name_generator_10():
+			gen_10 = ["Radical", "Sweet", "Super", "The Last", "Olde"]
+			randomNumber10 = random.randrange(0,len(gen_10))
+			name_10 = gen_10[randomNumber10]
+			return name_10
+		
+#Convert user input into lowercase string
+		
+		t1 = e1.get()
+		t1 = t1.lower()
+		t2 = e2.get()
+		t2 = t2.lower()
+		
+		
+#Pick the adjective based on question one
+		
+		if  t1 in ['fall', 'autumn', 'fal', 'automn']:
+			t1 = name_generator_1()
+		elif t1 in ['summer', 'sumer']:
+			t1 = name_generator_2()
+		elif t1 in ['winter', 'winer', 'witer']:
+			t1 = name_generator_3()
+		elif t1 in ['spring', 'springtime', 'sprng']:
+			t1 = name_generator_4()
+		else:
+			t1 = name_generator_5()
+		
+#Pick the noun based on question two
+		
+		if  t2 in ['fall', 'autumn', 'fal', 'automn']:
+			t2 = name_generator_6()
+		elif t2 in ['summer', 'sumer']:
+			t2 = name_generator_7()
+		elif t2 in ['winter', 'winer', 'witer']:
+			t2 = name_generator_8()
+		elif t2 in ['spring', 'springtime', 'sprng']:
+			t2 = name_generator_9()
+		else:
+			t2 = name_generator_10()
+		
+		
+#Display output
+			
+		output = "%s %s"  % (t1, t2)
+		e4.configure(state = "normal")
+		e4.delete('1.0', END)
+		e4.insert('1.0',output)
+		e4.configure(state = "disabled")
+		
+			
+	
+	
+		
+
+
+
+
+
+
+#Build GUI
+	
+root = Tk()
+my_gui = MyGUI(root)
+root.resizable(0,0)	
+root.mainloop()
+
